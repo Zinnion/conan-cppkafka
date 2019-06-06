@@ -16,7 +16,7 @@ class CppKafkaConan(ConanFile):
     exports = ["LICENSE.md"]
     exports_sources = ["CMakeLists.txt"]
     settings = "os", "compiler", "build_type", "arch"
-    short_paths = True
+    short_paths = False
     generators = "cmake"
     source_subfolder = "source_subfolder"
     build_subfolder = "build_subfolder"
@@ -74,5 +74,5 @@ class CppKafkaConan(ConanFile):
                 self.cpp_info.libs.append('ws2_32')
         elif self.settings.os == "Linux":
             self.cpp_info.libs.append('pthread')
-        #if not self.options.shared:
-        #    self.cpp_info.defines.append("CPPKAFKA_RDKAFKA_STATIC_LIB")
+        if not self.options.shared:
+            self.cpp_info.defines.append("CPPKAFKA_RDKAFKA_STATIC_LIB")
