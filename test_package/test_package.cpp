@@ -1,24 +1,20 @@
 #include <cppkafka/cppkafka.h>
 #include <iostream>
+#include <string>
 
 using namespace std;
-using namespace cppkafka;
+using cppkafka::Consumer;
+using cppkafka::Configuration;
+using cppkafka::Message;
+using cppkafka::TopicPartitionList;
 
 int main() {
     // Create the config
-    Configuration config = {
-        { "metadata.broker.list", "127.0.0.1:9092" }
-    };
-     try {
-   	// Create the producer
-    	Producer producer(config);
+    try {
 
-    	// Produce a message!
-    	string message = "hey there!";
-   	producer.produce(MessageBuilder("my_topic").partition(0).payload(message));
-    	producer.flush();
     }
-    catch (const Exception& ex) {
-        cout << "Error fetching metadata: " << ex.what() << endl;
-    }    
+    catch (std::exception &e) {
+	cout << e.what() << endl;
+    }
+	
 }
