@@ -39,7 +39,7 @@ class CppKafkaConan(ConanFile):
 
     def requirements(self):
         self.requires.add("boost/1.70.0@zinnion/stable")
-        self.requires.add("librdkafka/1.0.1@zinnion/stable")
+        self.requires.add("librdkafka/1.1.0@zinnion/stable")
 
     def configure(self):
         del self.settings.compiler.libcxx
